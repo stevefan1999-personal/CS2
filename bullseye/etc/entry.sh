@@ -31,6 +31,9 @@ if [[ ! -f "${STEAMAPPDIR}/post.sh" ]] ; then
     cp /etc/post.sh "${STEAMAPPDIR}/post.sh"
 fi
 
+# Pre Hook
+source "${STEAMAPPDIR}/pre.sh"
+
 # Download and extract custom config bundle
 if [[ ! -z $CS2_CFG_URL ]]; then
     echo "Downloading config pack from ${CS2_CFG_URL}"
@@ -69,9 +72,6 @@ fi
 
 # Switch to server directory
 cd "${STEAMAPPDIR}/game/bin/linuxsteamrt64"
-
-# Pre Hook
-source "${STEAMAPPDIR}/pre.sh"
 
 # Construct server arguments
 
